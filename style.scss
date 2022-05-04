@@ -1,0 +1,38 @@
+$color-primary: #9356DC;
+$color-secondary: #FF79DA;
+$color-tertiary: #99e2d0;
+$color-lightgrey: #f3f3f3;
+$breakpoint: 1000px;
+
+@mixin flexMid {
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+*,::before,::after{
+  box-sizing: border-box;
+}
+body{
+  font-family: "roboto",sans-serif;
+}
+header{
+  font-family: "Shrikhand", cursive;
+  text-align: center;
+  box-shadow: 0 0 0.5rem rgb(0 0 0 / 25%);
+  padding: 0.5rem;
+  position: relative;
+  font-size: 20px;
+}
+header h1 {
+  margin: 0;
+}
+.location{
+  @include flexMid;
+  background-color: #f3f3f3;
+  padding: 0.5rem;
+  font-weight: 600;
+  font-size: 20px;
+}
+.location i{
+  margin-right: 20px;
+}
