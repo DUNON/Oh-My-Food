@@ -3,12 +3,19 @@ $color-secondary: #FF79DA;
 $color-tertiary: #99e2d0;
 $color-lightgrey: #f3f3f3;
 $breakpoint: 1000px;
-
+@mixin flexCol {
+  display: flex;
+  flex-direction: column; 
+}
 
 @mixin flexMid {
   display: flex;
   justify-content: center;  
   align-items: center;
+}
+
+@mixin boxshadow {
+  box-shadow: 0px 3px 9px 2px rgba(0, 0, 0, 0.28);
 }
 
 @mixin gradient{
@@ -38,6 +45,7 @@ $breakpoint: 1000px;
 }
 body{
   font-family: "roboto",sans-serif;
+  margin: 0;
 }
 header{
   font-family: "Shrikhand", cursive;
@@ -46,10 +54,15 @@ header{
   padding: 0.5rem;
   position: relative;
   font-size: 20px;
+    & h1{
+      margin: 0 ;
+    }
 }
-header h1 {
-  margin: 0;
+main{
+  min-width: 320px;
+  margin:0 5%;
 }
+
 .location{
   @include flexMid;
   background-color: $color-lightgrey;
@@ -60,7 +73,7 @@ header h1 {
       margin-right: 20px;
     }
 }
-.discovery{
+.restaurant-discovery{
   text-align: center;
   padding: 20px;
   font-size: 25px;
@@ -73,7 +86,37 @@ button{
   @include btn;
     &:hover{
       opacity: 0.9;
-      box-shadow: 0px 3px 9px 2px rgba(0, 0, 0, 0.28);
+      @include boxshadow;
       transform: scale(1.1);
+    }
+}
+.operation{
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
+    & ol{
+      @include flexCol;
+      gap: 1rem;
+      @media all and (min-width: $breakpoint) {
+        flex-direction: row;
+      }
+    }
+    & li{
+      background-color: $color-lightgrey;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      border-radius: 1rem;
+      list-style-type: none;
+      @include boxshadow;
+        &:hover{
+          transform: scale(1.1);
+        }
+    }
+    & i{
+      color: grey;
+      margin-right: 1rem;
     }
 }
