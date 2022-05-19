@@ -1,93 +1,98 @@
-@use  "../Integration_Ohmyfood/sass/variables/variables" ;
-@use  "../Integration_Ohmyfood/sass/mixins/mixins" as *;
+@use "../Integration_Ohmyfood/sass/variables/variables";
+@use "../Integration_Ohmyfood/sass/mixins/mixins" as *;
 
-*,::before,::after{
+*,
+::before,
+::after {
   box-sizing: border-box;
 }
-body{
-  font-family: "roboto",sans-serif;
+body {
+  font-family: "roboto", sans-serif;
   margin: 0;
 }
-header{
+header {
   font-family: "Shrikhand", cursive;
   text-align: center;
   box-shadow: 0 0 0.5rem rgb(0 0 0 / 25%);
   padding: 0.5rem;
   position: relative;
   font-size: 1.25rem;
-    & h1{
-      margin: 0 ;
-    }
+  & h1 {
+    margin: 0;
+  }
 }
-main{
+main {
   min-width: 320px;
-  margin:0 5%;
+  margin: 0 5%;
 }
 
-.location{
+.location {
   @include flexMid;
   background-color: variables.$color-lightgrey;
   padding: 0.5rem;
   font-weight: 600;
   border-radius: 1rem;
   font-size: 1.25rem;
-    & i{
-      margin-right: 1.25rem;
-    }
+  i {
+    margin-right: 1.25rem;
+  }
 }
 
-.restaurant-discovery{
+.restaurant-discovery {
   text-align: center;
   padding: 1.25rem;
   font-size: 1.6rem;
-    & p{
-      font-size: 1.6rem;
-      font-weight: 100;
-    }
+  p {
+    font-size: 1.6rem;
+    font-weight: 100;
+  }
 }
 
-button{
+button {
   @include btn;
-    &:hover{
-      opacity: 0.9;
-      @include boxshadow;
-      transform: scale(1.1);
-    }
+  &:hover {
+    opacity: 0.9;
+    @include boxshadow;
+    transform: scale(1.1);
+  }
 }
-.operation{
+.operation {
   // max-width: 1200px;
   margin: auto;
   padding: 0 1rem;
   position: relative;
-    & ol{
-      @include flexCol;
-      gap: 1rem;
-      @media all and (min-width: variables.$breakpoint) {
-        flex-direction: row;
-      }
+  & ol {
+    @include flexCol;
+    gap: 1rem;
+    @media all and (min-width: variables.$breakpoint) {
+      flex-direction: row;
     }
-    & li{
-      background-color: variables.$color-lightgrey;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-grow: 1;
-      border-radius: 1rem;
-      list-style-type: none;
-      @media all and (min-width: variables.$breakpoint) {
-        position: relative;
-        margin-right: 20px;
-      }
-      @include boxshadow;
-        &:hover{
-          transform: scale(1.05);
-        }
+  }
+  & li {
+    background-color: variables.$color-lightgrey;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    border-radius: 1rem;
+    list-style-type: none;
+    transform: scale(1);
+    transition: transform 400ms;
+    // animation: ;
+    @media all and (min-width: variables.$breakpoint) {
+      position: relative;
+      margin-right: 20px;
     }
-    & i{
-      color: grey;
-      margin-right: 2rem;
+    @include boxshadow;
+    &:hover {
+      transform: scale(1.05);
     }
+  }
+  i {
+    color: grey;
+    margin-right: 2rem;
+  }
 }
 .steps-number {
   position: absolute;
@@ -108,94 +113,327 @@ button{
   padding: 0 1rem;
   padding-bottom: 4rem;
   &-global {
-           margin: auto;
-      max-width: 1440px;
+    margin: auto;
+    max-width: 1440px;
   }
-  & h2 {
-      padding-top: 3rem;
+  h2 {
+    padding-top: 3rem;
   }
-  & a{
+  a {
     text-decoration: none;
     color: black;
   }
   &-cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      @media (min-width: variables.$breakpoint) {
-          gap: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    @media (min-width: variables.$breakpoint) {
+      gap: 3rem;
+    }
+    .new {
+      position: relative;
+      &::before {
+        content: "Nouveau";
+        display: grid;
+        place-items: center;
+        position: absolute;
+        height: 2.2rem;
+        width: 5rem;
+        background-color: variables.$color-tertiary;
+        color: darken(variables.$color-tertiary, 50%);
+        right: 1rem;
+        top: 1rem;
       }
-      .new {
-          position: relative;
-          &::before {
-              content: "Nouveau";
-              display: grid;
-              place-items: center;
-              position: absolute;
-              height: 2.2rem;
-              width: 5rem;
-              background-color: variables.$color-tertiary;
-              color: darken(variables.$color-tertiary, 50%);
-              right: 1rem;
-              top: 1rem;
+    }
+  }
+  .card {
+    @media (min-width: variables.$breakpoint) {
+      flex-direction: row;
+      flex-grow: 1;
+      width: 45%;
+    }
+    @include boxshadow;
+    @include transition;
+    flex-grow: 1;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: white;
+    &:hover {
+      opacity: 0.8;
+      box-shadow: 0px 3px 9px 2px rgba(0, 0, 0, 0.28);
+    }
+    &-img {
+      height: 12rem;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 1rem 1rem 0 0;
+    }
+    &-description {
+      position: relative;
+      h3 {
+        padding-top: 0.6rem;
+        padding-left: 0.5rem;
+      }
+      p {
+        margin-top: 0.4rem;
+        margin-left: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .coeur {
+        position: absolute;
+        font-size: 2rem;
+        right: 1rem;
+        top: 30%;
+      }
+      // & i{
+      //   color: white;
+      // }
+      .fas {
+        @include gradient;
+        @include transition;
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        opacity: 0;
+        &:hover {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+footer {
+  background-color: darken(variables.$color-lightgrey, 75%);
+  color: white;
+  & .footer {
+      max-width: 1440px;
+      margin: auto;
+      padding-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+    @media (min-width: variables.$breakpoint) {
+       flex-direction: row;
+       align-items: center;
+       justify-content: space-between;
+    }
+   & h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: lighter;
+      font-family: "Shrikhand", cursive;
+      padding-top: 1rem;
+      padding-left: 1rem;
+      padding-bottom: 1rem;
+      }
+   & a {
+      margin-left: 1rem;
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+      text-decoration: none;
+      color: white;
+    }
+    & .fas-utensils {
+       &::after {
+        content: "";
+        padding-right: 0.8rem ;
+    }
+    }
+    & .fas-hands-helping {
+      &:before {
+        content: "";
+        padding-right: 0.4rem ;
+    }
+    }
+  }
+}
+.headerarrow {
+  @include flexMid;
+  position: relative;
+  & a {
+    @include transition;
+    position: absolute;
+    left: 3%;
+    font-size: large;
+    &:hover {
+      transform: scale(1.1);
+    }
+    @media (min-width: variables.$breakpoint) {
+      left: 5%;
+      font-size: 2rem;
+    }
+  }
+}
+
+.banniere img {
+  max-width: 100%;
+  width: 100%;
+  max-height: 32rem;
+  object-fit: cover;
+}
+
+.menus {
+  border-radius: 2rem 2rem 0 0;
+  margin-top: -4rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: variables.$color-lightgrey;
+  position: relative;
+  max-width: 1440px;
+  &__titrerestaurant {
+      position: relative;
+      margin-bottom: 2rem;
+      & h2 {
+          font-size: 1.7em;
+          padding-top: 2rem;
+          margin-left: 1rem;
+          font-weight: lighter;
+          font-family: "Shrikhand", cursive;
+      }
+      .coeur {
+          position: absolute;
+          font-size: 2rem;
+          right: 2rem;
+          top: 50%;
+          cursor: pointer;
+      }
+      .fas {
+          @include gradient;
+          @include transition;
+          color: transparent;
+          background-clip: text;
+          -webkit-background-clip: text;
+          opacity: 0;
+      &:hover {
+          opacity: 1;
+          transform: scale(1.1);
           }
       }
   }
-  .card {
+  & .menu {
       @media (min-width: variables.$breakpoint) {
           flex-direction: row;
-          flex-grow: 1;
-          width: 45%;
       }
-      @include boxshadow;
-      @include transition;
-      flex-grow: 1;
+      background-color: variables.$color-lightgrey;
+      display: flex;
       flex-direction: column;
-      width: 100%;
-      border-radius: 1rem;
-      background-color: white;
-      &:hover {
-        opacity: 0.9;
-        box-shadow: 0px 3px 9px 2px rgba(0, 0, 0, 0.28);
-      }
-      &-img {
-              height: 12rem;
-              width: 100%;
-              object-fit: cover;
-              border-radius: 1rem 1rem 0 0;
-      }
-      &-description {
-          position: relative;
-          h3 {
-              padding-top: 0.6rem;
-              padding-left: 0.5rem;
+      justify-content: space-between;
+      &__list {
+          .time1 {
+              animation-delay: 0ms;
           }
-          p {
-              margin-top: 0.4rem;
-              margin-left: 0.5rem;
+          
+          .time2 {
+              animation-delay: 100ms;
+          }
+          
+          .time3 {
+              animation-delay: 200ms;
+          }
+          
+          .time4 {
+              animation-delay: 300ms;
+          }
+          .time5 {
+              animation-delay: 400ms;
+          }
+          .time6 {
+              animation-delay: 500ms;
+          }
+          .time7 {
+              animation-delay: 600ms;
+          }
+          .time8 {
+              animation-delay: 700ms;
+          }
+          .time9 {
+              animation-delay: 800ms;
+          }
+          .time10 {
+              animation-delay: 900ms;
+          }
+          width: 100%;
+          overflow: hidden;
+          padding: 0 0.7rem;
+          margin-bottom: 2rem;
+          & h2 {
+              margin-top: 0;
+              margin-bottom: 2rem;
+              font-weight: normal;
+              text-transform: uppercase;
+              position: relative;
+              &::after {
+                  content: "";
+                  position: absolute;
+                  height: 0.25rem;
+                  width: 3.8rem;
+                  background-color: variables.$color-tertiary;
+                  top: 2.1rem;
+                  left: 0.1rem;
+              }
+          }
+          &--item {
+              @include boxshadow;
+              display: flex;
+              background-color: white;
+              border-radius: 1rem;
               margin-bottom: 1rem;
-          }
-          .coeur {
-              position: absolute;
-              font-size: 2rem;
-              right: 1rem;
-              top: 30%;
-          }
-          // & i{
-          //   color: white;
-          // }
-          .fas {
-              @include gradient;
-              @include transition;
-              color: transparent;
-              background-clip: text;
-              -webkit-background-clip: text;
-              opacity: 0;
+              overflow: hidden;
+              cursor: pointer;
+              animation: menuappears 1000ms both cubic-bezier(.45, 1.57, .35, .85);
+              & .menudescription {
+                  margin: 1rem;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  & h3, 
+                  p {
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                  }
+              }
+              & .price {
+                  margin-left: auto;
+                  margin-top: auto;
+                  margin-bottom: 1rem;
+                  margin-right: 1rem;
+                  font-weight: bold;
+              }
+              & .check {
+                  background-color: variables.$color-tertiary;
+                  border-radius: 0 1rem 1rem 0;
+                  margin-right: -4rem;
+                  width: 4rem;
+                  transition: margin-right 0.5s ease-in-out;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+              }
               &:hover {
-                  opacity: 1;
-                  transform: scale(1.1);
+                  & .check {
+                  margin-right: 0;
+                      & i {
+                          animation: check-spin 500ms both ease-in-out;
+                      }
+                  }
+              }
+              & i {
+                  font-size: 1.2rem;
+                  background: white;
+                  color:variables.$color-tertiary;
+                  border-radius: 50%;
+                  width: 1.5rem;
+                  height: 1.5rem;
+                  display: grid;
+                  place-items: center;
               }
           }
       }
   }
+}
+.order-btn{
+  @include flexMid
 }
