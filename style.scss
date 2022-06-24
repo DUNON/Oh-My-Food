@@ -79,7 +79,6 @@ button {
     list-style-type: none;
     transform: scale(1);
     transition: transform 400ms;
-    // animation: ;
     @media all and (min-width: variables.$breakpoint) {
       position: relative;
       margin-right: 20px;
@@ -228,23 +227,17 @@ footer {
       padding-bottom: 1rem;
       }
    & a {
+      display: flex;
+      align-items: center;
       margin-left: 1rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;
       margin-top: 0;
+      line-height: 0.15rem;
       text-decoration: none;
       color: white;
     }
-    & .fas-utensils {
-       &::after {
-        content: "";
-        padding-right: 0.8rem ;
-    }
-    }
-    & .fas-hands-helping {
-      &:before {
-        content: "";
-        padding-right: 0.4rem ;
-    }
+    & p{
+      margin-left: 0.4rem;
     }
   }
 }
@@ -325,27 +318,27 @@ footer {
           }
           
           .time2 {
-              animation-delay: 100ms;
+              animation-delay: 1000ms;
           }
           
           .time3 {
-              animation-delay: 200ms;
+              animation-delay: 2000ms;
           }
           
           .time4 {
-              animation-delay: 300ms;
+              animation-delay: 3000ms;
           }
           .time5 {
-              animation-delay: 400ms;
+              animation-delay: 4000ms;
           }
           .time6 {
-              animation-delay: 500ms;
+              animation-delay: 5000ms;
           }
           .time7 {
-              animation-delay: 600ms;
+              animation-delay: 6000ms;
           }
           .time8 {
-              animation-delay: 700ms;
+              animation-delay: 7000ms;
           }
           .time9 {
               animation-delay: 800ms;
