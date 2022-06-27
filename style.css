@@ -31,9 +31,7 @@ main {
   justify-content: center;
   align-items: center;
   background-color: #f3f3f3;
-  padding: 0.5rem;
   font-weight: 600;
-  border-radius: 1rem;
   font-size: 1.25rem;
 }
 .location i {
@@ -45,9 +43,16 @@ main {
   padding: 1.25rem;
   font-size: 1.6rem;
 }
-.restaurant-discovery p {
+.restaurant-discovery h2 {
   font-size: 1.6rem;
+  font-weight: bold;
+}
+.restaurant-discovery p {
+  font-size: 1.2rem;
   font-weight: 100;
+}
+.restaurant-discovery button {
+  padding: 1.2rem 1.6rem;
 }
 
 button {
@@ -55,8 +60,8 @@ button {
   transition: all 150ms ease-in-out;
   color: white;
   font-weight: normal;
-  font-size: medium;
-  padding: 1rem;
+  font-size: large;
+  padding: 1.2rem 3.6rem;
   border: none;
   border-radius: 2rem;
   cursor: pointer;
@@ -74,10 +79,14 @@ button:hover {
   padding: 0 1rem;
   position: relative;
 }
+.operation h2 {
+  margin-bottom: 3rem;
+}
 .operation ol {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0;
 }
 @media all and (min-width: 62.5rem) {
   .operation ol {
@@ -86,7 +95,7 @@ button:hover {
 }
 .operation li {
   background-color: #f3f3f3;
-  padding: 1rem 2rem;
+  padding: 1.8rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,6 +104,7 @@ button:hover {
   list-style-type: none;
   transform: scale(1);
   transition: transform 400ms;
+  margin-bottom: 1rem;
   box-shadow: 0px 3px 9px 2px rgba(0, 0, 0, 0.28);
 }
 @media all and (min-width: 62.5rem) {
@@ -105,6 +115,10 @@ button:hover {
 }
 .operation li:hover {
   transform: scale(1.05);
+  background-color: #eae0f6;
+}
+.operation li:hover i {
+  color: #9356DC;
 }
 .operation i {
   color: grey;
@@ -113,7 +127,7 @@ button:hover {
 
 .steps-number {
   position: absolute;
-  left: 1rem;
+  left: 0rem;
   background-color: #9356DC;
   border-radius: 50%;
   margin-left: -10px;
@@ -201,6 +215,7 @@ button:hover {
 .restaurants .card-description h3 {
   padding-top: 0.6rem;
   padding-left: 0.5rem;
+  margin: 0;
 }
 .restaurants .card-description p {
   margin-top: 0.4rem;
@@ -244,6 +259,12 @@ footer .footer {
     justify-content: space-between;
   }
 }
+footer .footer .fa-utensils {
+  margin-right: 0.8rem;
+}
+footer .footer .fa-hands-helping {
+  margin-right: 0.4rem;
+}
 footer .footer h2 {
   margin: 0;
   font-size: 1.3rem;
@@ -262,9 +283,6 @@ footer .footer a {
   line-height: 0.15rem;
   text-decoration: none;
   color: white;
-}
-footer .footer p {
-  margin-left: 0.4rem;
 }
 
 .headerarrow {
@@ -310,7 +328,7 @@ footer .footer p {
   margin-bottom: 2rem;
 }
 .menus__titrerestaurant h2 {
-  font-size: 1.7em;
+  font-size: 2rem;
   padding-top: 2rem;
   margin-left: 1rem;
   font-weight: lighter;
@@ -385,7 +403,8 @@ footer .footer p {
 .menus .menu__list h2 {
   margin-top: 0;
   margin-bottom: 2rem;
-  font-weight: normal;
+  font-weight: 300;
+  font-size: 1.2rem;
   text-transform: uppercase;
   position: relative;
 }
@@ -419,6 +438,7 @@ footer .footer p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin: 0;
 }
 .menus .menu__list--item .price {
   margin-left: auto;
