@@ -25,7 +25,45 @@ main {
   min-width: 320px;
   margin: 0 5%;
 }
-
+.loading{
+  $animation-duration:2s;
+  position: fixed;
+  display: grid;
+  place-items: center;
+  background-color: #ffffff;
+  height: 100vh;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.9;
+  animation: disappear 200ms;
+  animation-fill-mode: forwards;
+  animation-delay: $animation-duration;
+  &::after{
+    content: "";
+    height: 100px;
+    width: 100px;
+    border-right: 5px solid transparent;
+    border-top: 5px solid  variables.$color-primary;
+    border-radius: 50%;
+    animation:spin $animation-duration infinite linear;
+  }
+  // i{
+  //   animation:spin $animation-duration infinite linear;
+  // }
+}
+@keyframes disappear{
+  0%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(0);
+  }
+}
+@keyframes spin{
+  to{
+    transform: rotate(360deg)
+  }
+}
 .location {
   @include flexMid;
   background-color: variables.$color-lightgrey;
@@ -341,27 +379,27 @@ footer {
           }
           
           .time2 {
-              animation-delay: 1000ms;
+              animation-delay: 100ms;
           }
           
           .time3 {
-              animation-delay: 2000ms;
+              animation-delay: 200ms;
           }
           
           .time4 {
-              animation-delay: 3000ms;
+              animation-delay: 300ms;
           }
           .time5 {
-              animation-delay: 4000ms;
+              animation-delay: 400ms;
           }
           .time6 {
-              animation-delay: 5000ms;
+              animation-delay: 500ms;
           }
           .time7 {
-              animation-delay: 6000ms;
+              animation-delay: 600ms;
           }
           .time8 {
-              animation-delay: 7000ms;
+              animation-delay: 700ms;
           }
           .time9 {
               animation-delay: 800ms;
@@ -399,6 +437,27 @@ footer {
               overflow: hidden;
               cursor: pointer;
               animation: menuappears 1000ms both cubic-bezier(.45, 1.57, .35, .85);
+              @keyframes menuappears {
+                0% {
+                    opacity: 0;
+                }
+                30% {
+                    transform: translateY(50%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes check-spin {
+              from {
+                  transform: rotate(-270deg);
+              }
+              to {
+                  transform: rotate(0);
+              }
+          }
               & .menudescription {
                   margin: 1rem;
                   overflow: hidden;
